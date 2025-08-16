@@ -38,7 +38,7 @@ export const CartHighlightText = styled.span`
   }
 `;
 
-export const CartContainer = styled(Link)`
+export const CartContainer = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;

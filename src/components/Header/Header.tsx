@@ -12,14 +12,20 @@ import {
   CartIcon,
 } from "./Header.styles";
 import type { RootState } from "../../store/store";
+import { useNavigate } from "react-router-dom";
 
 const Header = () => {
+  const navigate = useNavigate();
+
+  const handleNavigate = () => {
+    navigate("/carrinho");
+  };
   return (
     <HeaderContainer>
       <Nav>
         <Logo to="/">WeMovies</Logo>;
         <NavLinks>
-          <CartContainer to="/carrinho">
+          <CartContainer onClick={handleNavigate}>
             <CartTextBox>
               <CartHighlightText>Meu Carrinho</CartHighlightText>
               <CartQuantityDisplay />
