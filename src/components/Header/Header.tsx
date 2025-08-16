@@ -23,7 +23,7 @@ const Header = () => {
   return (
     <HeaderContainer>
       <Nav>
-        <Logo to="/">WeMovies</Logo>;
+        <Logo to="/">WeMovies</Logo>
         <NavLinks>
           <CartContainer onClick={handleNavigate}>
             <CartTextBox>
