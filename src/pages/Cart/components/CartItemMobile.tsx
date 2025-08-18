@@ -38,7 +38,7 @@ const CartItemMobileComponent = ({ item }: CartItemMobileProps) => {
         <MobileTopContainer>
           <ItemTitle>{item.title}</ItemTitle>
           <MobileTopRight>
-            <ItemPrice>{formatPrice(item.price * item.quantity)}</ItemPrice>
+            <ItemPrice>{formatPrice(item.price)}</ItemPrice>
             <RemoveButton
               onClick={() => dispatch(removeFromCart({ id: item.id }))}
             >
