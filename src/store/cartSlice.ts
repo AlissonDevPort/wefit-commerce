@@ -19,14 +19,17 @@ const cartSlice = createSlice({
   reducers: {
     addToCart: (state, action: PayloadAction<AddToCartPayload>) => {
       const newItem = action.payload;
+      const exists = state.items.some((item) => item.id === newItem.id);
 
-      state.items = state.items.map((item) =>
-        item.id === newItem.id ? { ...item, quantity: item.quantity + 1 } : item
-      );
-
-      state.items = state.items.some((item) => item.id === newItem.id)
-        ? state.items
-        : [...state.items, { ...newItem, quantity: 1 }];
+      if (exists) {
+        state.items = state.items.map((item) =>
+          item.id === newItem.id
+            ? { ...item, quantity: item.quantity + 1 }
+            : item
+        );
+      } else {
+        state.items = [...state.items, { ...newItem, quantity: 1 }];
+      }
 
       cartSlice.caseReducers.updateTotals(state);
     },
